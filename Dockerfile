@@ -1,4 +1,4 @@
-FROM hayd/alpine-deno:1.0.0
+FROM denoland/deno:1.11.5
 
 EXPOSE 8080
 
