@@ -1,4 +1,4 @@
-FROM  hayd/deno:latest
+FROM  hayd/deno:1.9.2
 
 EXPOSE 19974
 
