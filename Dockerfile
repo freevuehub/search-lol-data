@@ -1,15 +1,16 @@
 FROM denoland/deno:1.11.5
 
-EXPOSE 8080
+EXPOSE 19974
 
-WORKDIR /server
+WORKDIR /app
 
 USER deno
 
 COPY deps.ts .
 RUN deno cache deps.ts
 
-COPY . .
+ADD . .
+
 RUN deno cache server.ts
 
 CMD ["run", "--allow-net", "--allow-read", "server.ts"]
