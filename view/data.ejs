@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        * {
+          margin: 0;
+          padding: 0;
+        }
+
+        html, body {
+          height: 100%;
+          overflow: hidden;
+        }
+        #app {
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+        }
+        .bg {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          z-index: -1;
+          background-image: url("https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/blt30d3d484527d8e5a/5fb5eee4fd99385ff6006de3/LOL_PROMOART_9-1.jpg");
+          background-size: cover;
+          background-position: center;
+          filter: blur(5px);
+          transform: scale(1.4);
+        }
+        .container {
+          backdrop-filter: blur(15px);
+          background-color: #ffffff40;
+          padding: 40px;
+          border-radius: 20px;
+          box-shadow: 0 0 20px #00000080;
+          text-align: center;
+        }
+        table {
+          margin-bottom: 30px;
+        }
+        table th,
+        table td {
+          height: 30px;
+          padding: 0 10px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div class="bg">background</div>
+    <div class="container">
+        <table>
+            <thead>
+            <tr>
+                <th>게임모드</th>
+                <th>게임타입</th>
+                <th>챔피언</th>
+                <th>레벨</th>
+                <th>라인</th>
+                <th>Kills</th>
+                <th>Assists</th>
+                <th>Deaths</th>
+                <th>총 골드</th>
+                <th>총 데미지</th>
+                <th>잡은 미니언 수</th>
+                <th>잡은 오브젝트 수</th>
+                <th>시야 점수</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% data.forEach(function (item) { %><tr>
+                <tr>
+                    <td><%= item.gameMode %></td>
+                    <td><%= item.gameType %></td>
+                    <td><%= item.matched.championName %></td>
+                    <td><%= item.matched.champLevel %></td>
+                    <td><%= item.matched.lane %></td>
+                    <td><%= item.matched.kills %></td>
+                    <td><%= item.matched.assists %></td>
+                    <td><%= item.matched.deaths %></td>
+                    <td><%= item.matched.goldEarned %></td>
+                    <td><%= item.matched.totalDamageDealt %></td>
+                    <td><%= item.matched.totalMinionsKilled %></td>
+                    <td><%= item.matched.neutralMinionsKilled %></td>
+                    <td><%= item.matched.visionScore %></td>
+                </tr>
+            <% }) %>
+            </tbody>
+        </table>
+        <a href="/">돌아가기</a>
+    </div>
+</div>
+</body>
+</html>
