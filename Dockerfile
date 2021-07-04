@@ -1,4 +1,4 @@
-FROM denoland/deno:1.11.5
+FROM  hayd/deno:latest
 
 EXPOSE 19974
 
