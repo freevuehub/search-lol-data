@@ -1,4 +1,4 @@
-FROM hayd/alpine-deno:1.5.2
+FROM denoland/deno:1.11.5
 
 EXPOSE 19974
 
@@ -6,10 +6,10 @@ WORKDIR /app
 
 USER deno
 
-COPY deps.ts /app
+COPY deps.ts .
 RUN deno cache deps.ts
 
-ADD . /app
+ADD . .
 
 RUN deno cache server.ts
 
